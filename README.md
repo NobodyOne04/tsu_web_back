@@ -1,3 +1,3 @@
-**lab1**
+**Web tsu labs**
 =====================
 * Author: Shapovalov Vladislav
