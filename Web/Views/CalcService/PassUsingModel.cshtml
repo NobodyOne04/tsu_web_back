@@ -1,0 +1,30 @@
+﻿@model Web.Models.ValueModel
+@{
+    ViewData["Title"] = "PassUsingModel";
+    ViewData["h3"] = "Pass Using Model";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h6>Rand Value First : @Model.randValueFirst</h6>
+    <h6>Rand Value Second : @Model.randValueSecond</h6>
+    <h6>Add : </h6>@($"{Model.randValueFirst} + {Model.randValueSecond} = ")@(Model.randValueFirst + Model.randValueSecond)
+    <h6>Sub : </h6>@($"{Model.randValueFirst} - {Model.randValueSecond} = ")@(Model.randValueFirst - Model.randValueSecond)
+    <h6>Mult : </h6>@($"{Model.randValueFirst} * {Model.randValueSecond} = ")@(Model.randValueFirst * Model.randValueSecond)
+    @{
+        string div;
+        if (Model.randValueSecond == 0)
+        {
+            div = "inf";
+        }
+        else
+        {
+            div = (Model.randValueFirst / Model.randValueSecond).ToString();
+        }
+    }
+    <h6>Div : </h6>@($"{Model.randValueFirst} / {Model.randValueSecond} = ")@div
+</body>
+</html>

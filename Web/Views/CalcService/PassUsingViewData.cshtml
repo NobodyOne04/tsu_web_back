@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "PassUsingViewData";
+    ViewData["h3"] = "Pass Using View Data";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    @{
+        var value = ViewData["Value"] as ValueModel;
+    }
+    <h6>Rand Value First : @value.randValueFirst</h6>
+    <h6>Rand Value Second : @value.randValueSecond</h6>
+    <h6>Add : </h6>@($"{value.randValueFirst} + {value.randValueSecond} = ")@(value.randValueFirst + value.randValueSecond)
+    <h6>Sub : </h6>@($"{value.randValueFirst} - {value.randValueSecond} = ")@(value.randValueFirst - value.randValueSecond)
+    <h6>Mult : </h6>@($"{value.randValueFirst} * {value.randValueSecond} = ")@(value.randValueFirst * value.randValueSecond)
+    @{
+        string div;
+        if (value.randValueSecond == 0)
+        {
+            div = "inf";
+        }
+        else
+        {
+            div = (value.randValueFirst / value.randValueSecond).ToString();
+        }
+    }
+    <h6>Div : </h6>@($"{value.randValueFirst} / {value.randValueSecond} = ")@div
+</body>
+</html>
