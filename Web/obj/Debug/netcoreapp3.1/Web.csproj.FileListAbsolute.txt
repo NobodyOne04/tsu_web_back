@@ -39,7 +39,6 @@
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.TagHelpers.input.cache
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.TagHelpers.output.cache
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.RazorCoreGenerate.cache
-/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/CalcService/AccessServiceDirectly.cshtml.g.cs
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/CalcService/PassUsingModel.cshtml.g.cs
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/CalcService/PassUsingViewBag.cshtml.g.cs
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/CalcService/PassUsingViewData.cshtml.g.cs
@@ -59,3 +58,4 @@
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.pdb
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.genruntimeconfig.cache
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.csproj.CopyComplete
+/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/CalcService/AccessServiceDirectly.cshtml.g.cs

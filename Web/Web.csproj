@@ -5,4 +5,11 @@
     <RootNamespace>Web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Update="Views\CalcService\AccessServiceDirectly.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

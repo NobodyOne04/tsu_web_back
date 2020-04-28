@@ -16,18 +16,7 @@
     <h6>Add : </h6>@($"{value.randValueFirst} + {value.randValueSecond} = ")@(value.randValueFirst + value.randValueSecond)
     <h6>Sub : </h6>@($"{value.randValueFirst} - {value.randValueSecond} = ")@(value.randValueFirst - value.randValueSecond)
     <h6>Mult : </h6>@($"{value.randValueFirst} * {value.randValueSecond} = ")@(value.randValueFirst * value.randValueSecond)
-    @{
-        string div;
-        if (value.randValueSecond == 0)
-        {
-            div = "inf";
-        }
-        else
-        {
-            div = (value.randValueFirst / value.randValueSecond).ToString();
-        }
-    }
-    <h6>Div : </h6>@($"{value.randValueFirst} / {value.randValueSecond} = ")@div
+    <h6>Div : </h6>@($"{value.randValueFirst} / {value.randValueSecond} = ")@(value.Divide())
 </body>
 </html>
 

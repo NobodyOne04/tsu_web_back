@@ -1,29 +1,18 @@
-﻿@{
+@{
     ViewData["Title"] = "AccessServiceDirectly";
-    ViewData["h3"] = "Access Service Directly";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
+@inject Web.Services.IService valuesService
+<h1>Pass using injection</h1>
+
+
+<h4>Rand value : @valuesService.GetFirst()</h4>
+<h4>Rand value : @valuesService.GetSecond()</h4>
+
 <body>
-    <h6>Rand Value First : @Model.randValueFirst</h6>
-    <h6>Rand Value Second : @Model.randValueSecond</h6>
-    <h6>Add : </h6>@($"{Model.randValueFirst} + {Model.randValueSecond} = ")@(Model.randValueFirst + Model.randValueSecond)
-    <h6>Sub : </h6>@($"{Model.randValueFirst} - {Model.randValueSecond} = ")@(Model.randValueFirst - Model.randValueSecond)
-    <h6>Mult : </h6>@($"{Model.randValueFirst} * {Model.randValueSecond} = ")@(Model.randValueFirst * Model.randValueSecond)
-    @{
-        string div;
-        if (Model.randValueSecond == 0)
-        {
-            div = "inf";
-        }
-        else
-        {
-            div = (Model.randValueFirst / Model.randValueSecond).ToString();
-        }
-    }
-    <h6>Div : </h6>@($"{Model.randValueFirst} / {Model.randValueSecond} = ")@div
+<h6>Rand Value First : @valuesService.GetFirst()</h6>
+<h6>Rand Value Second : @valuesService.GetSecond()</h6>
+<h6>Add : </h6>@($"{valuesService.GetFirst()} + {valuesService.GetSecond()} = ")@valuesService.Add()
+<h6>Sub : </h6>@($"{valuesService.GetFirst()} - {valuesService.GetSecond()} = ")@valuesService.Sub()
+<h6>Mult : </h6>@($"{valuesService.GetFirst()} * {valuesService.GetSecond()} = ")@valuesService.Mult()
+<h6>Div : </h6>@($"{valuesService.GetFirst()} / {valuesService.GetSecond()} = ")@valuesService.Div()
 </body>
-</html>

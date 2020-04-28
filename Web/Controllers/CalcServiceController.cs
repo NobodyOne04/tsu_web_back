@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Web.Models;
+using Web.Services;
 
 namespace Web.Controllers
 {
@@ -26,7 +24,6 @@ namespace Web.Controllers
         public IActionResult PassUsingViewData()
         {
             ViewData["Value"] = new ValueModel();
-
             return View();
         }
 
@@ -35,13 +32,12 @@ namespace Web.Controllers
             ViewBag.Value = new ValueModel();
             return View();
         }
-
+        
         public IActionResult AccessServiceDirectly()
         {
-            ValueModel viewModel = new ValueModel();
-            return View(viewModel);
+            OperationService service = new OperationService();
+            return View(service);
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
