@@ -12,9 +12,9 @@
 <body>
     <h6>Rand Value First : @Model.randValueFirst</h6>
     <h6>Rand Value Second : @Model.randValueSecond</h6>
-    <h6>Add : </h6>@($"{Model.randValueFirst} + {Model.randValueSecond} = ")@(Model.randValueFirst + Model.randValueSecond)
-    <h6>Sub : </h6>@($"{Model.randValueFirst} - {Model.randValueSecond} = ")@(Model.randValueFirst - Model.randValueSecond)
-    <h6>Mult : </h6>@($"{Model.randValueFirst} * {Model.randValueSecond} = ")@(Model.randValueFirst * Model.randValueSecond)
+    <h6>Add : </h6>@($"{Model.randValueFirst} + {Model.randValueSecond} = ")@(Model.Add())
+    <h6>Sub : </h6>@($"{Model.randValueFirst} - {Model.randValueSecond} = ")@(Model.Sub())
+    <h6>Mult : </h6>@($"{Model.randValueFirst} * {Model.randValueSecond} = ")@(Model.Mult())
     <h6>Div : </h6>@($"{Model.randValueFirst} / {Model.randValueSecond} = ")@(Model.Divide())
 </body>
 </html>

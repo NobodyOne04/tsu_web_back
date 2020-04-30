@@ -15,12 +15,27 @@ namespace Web.Models
             randValueSecond = rnd.Next(0, 10);
         }
 
+        public int Add()
+        {
+            return this.randValueFirst + this.randValueSecond;
+        }
+        
+        public int Sub()
+        {
+            return this.randValueFirst - this.randValueSecond;
+        }
+        
+        public int Mult()
+        {
+            return this.randValueFirst * this.randValueSecond;
+        }
+
         public float Divide()
         {
             float div;
             try
             {
-                div = this.randValueFirst / this.randValueSecond;
+                div = (float)this.randValueFirst / this.randValueSecond;
             }
             catch (DivideByZeroException e)
             {

@@ -35,8 +35,7 @@ namespace Web.Controllers
         
         public IActionResult AccessServiceDirectly()
         {
-            OperationService service = new OperationService();
-            return View(service);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

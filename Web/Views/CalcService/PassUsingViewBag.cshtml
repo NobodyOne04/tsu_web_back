@@ -13,9 +13,9 @@
     }
     <h6>Rand Value First : @value.randValueFirst</h6>
     <h6>Rand Value Second : @value.randValueSecond</h6>
-    <h6>Add : </h6>@($"{value.randValueFirst} + {value.randValueSecond} = ")@(value.randValueFirst + value.randValueSecond)
-    <h6>Sub : </h6>@($"{value.randValueFirst} - {value.randValueSecond} = ")@(value.randValueFirst - value.randValueSecond)
-    <h6>Mult : </h6>@($"{value.randValueFirst} * {value.randValueSecond} = ")@(value.randValueFirst * value.randValueSecond)
+    <h6>Add : </h6>@($"{value.randValueFirst} + {value.randValueSecond} = ")@(value.Add())
+    <h6>Sub : </h6>@($"{value.randValueFirst} - {value.randValueSecond} = ")@(value.Sub())
+    <h6>Mult : </h6>@($"{value.randValueFirst} * {value.randValueSecond} = ")@(value.Mult())
     <h6>Div : </h6>@($"{value.randValueFirst} / {value.randValueSecond} = ")@(value.Divide())
 </body>
 </html>
