@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "ManualSingle";
+}
+
+<h1>ManualSingle</h1>
+
+@using Web
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper Web.Helpers.FieldTagHelper, Web
+
+<form method="post">
+    <div>
+        <div><field name="first" /></div>
+        <div><selector name="operation"></selector></div>
+        <div><field name="second" /></div>
+    </div>
+    <input type="submit" value="cals" />
+</form>
+
+
+

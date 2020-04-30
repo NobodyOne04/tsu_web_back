@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cdf3bd6-fa3f-4ec3-85ff-f15f7039b2d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.RazorTargetAssemblyInfo.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.RazorTargetAssemblyInfo.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/Web.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Web.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.packagespec.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/FormController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Helpers/SelectorTagHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Helpers/FieldTagHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36814677-9EF5-46D9-ADEC-CF58771DE515/C/Controller.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Models/ErrorModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Models/FormModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ManualSingle.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ResultFormModel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ResultForm.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindPar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ManualSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Web/Models/ErrorViewModel.cs" />
+        <option value="$PROJECT_DIR$/Web/Views/CalcService/PassUsingViewData.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/CalcService/PassUsingModel.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/CalcService/AccessServiceDirectly .cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/CalcService/PassUsingViewBag.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Service/IsService.cs" />
+        <option value="$PROJECT_DIR$/Web/Models/ValueModel.cs" />
+        <option value="$PROJECT_DIR$/Web/Service/IService.cs" />
+        <option value="$PROJECT_DIR$/Web/Service/OperationService.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/CalcServiceController.cs" />
+        <option value="$PROJECT_DIR$/Web/Services/OperationService.cs" />
+        <option value="$PROJECT_DIR$/Web/Services/IService.cs" />
+        <option value="$PROJECT_DIR$/Web/Views/CalcService/AccessServiceDirectly.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Controller/HomeController.cs" />
+        <option value="$PROJECT_DIR$/Web/Models/ErrorModel.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/Web/view.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Web/view.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/_ViewImports.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/Form/ResultFormModel.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Startup.cs" />
+        <option value="$PROJECT_DIR$/Web/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/Web/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/Web/TagHelpers/FieldTagHelper.cs" />
+        <option value="$PROJECT_DIR$/Web/TagHelpers/SelectorTagHelper.cs" />
+        <option value="$PROJECT_DIR$/Web/Helpers/SelectorTagHelper.cs" />
+        <option value="$PROJECT_DIR$/Web/Helpers/FieldTagHelper.cs" />
+        <option value="$PROJECT_DIR$/Web/Views/Form/ManualSep.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/Form/ModelBindSep.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/Form/ManualSingle.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Views/Form/ModelBindPar.cshtml" />
+        <option value="$PROJECT_DIR$/Web/Controllers/FormController.cs" />
+        <option value="$PROJECT_DIR$/Web/Models/FormModel.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1auHhe7aM1ndxqaDZdt51j7wRat" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35025382" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3000564" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebLab1" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web: Web">
+    <configuration name="Web: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web/Web.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Web: Web" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web/Web.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="Web._1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Web: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.Web: Web" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cdf3bd6-fa3f-4ec3-85ff-f15f7039b2d0" name="Default Changelist" comment="" />
+      <created>1587578678189</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587578678189</updated>
+      <workItem from="1587578681555" duration="1566000" />
+      <workItem from="1587639886874" duration="1510000" />
+      <workItem from="1588082163898" duration="7591000" />
+      <workItem from="1588146778728" duration="3242000" />
+      <workItem from="1588150189019" duration="3998000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="657" y="233" width="841" height="647" key="#Web:_Web" timestamp="1588147648061">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="657" y="233" width="841" height="647" key="#Web:_Web/70.27.1850.1053@70.27.1850.1053" timestamp="1588147648061" />
+    <state x="657" y="233" width="666" height="647" key="#Web:_Web3._1" timestamp="1587579212586">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="657" y="233" width="666" height="647" key="#Web:_Web3._1/70.27.1850.1053@70.27.1850.1053" timestamp="1587579212586" />
+    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588147731847">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="453" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1588147731847" />
+    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587640469761">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1587640469761" />
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom" timestamp="1588150028172">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028172" />
+    <state width="1804" height="275" key="GridCell.Tab.0.center" timestamp="1588150028169">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028169" />
+    <state width="1804" height="275" key="GridCell.Tab.0.left" timestamp="1588150028167">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028167" />
+    <state width="1804" height="275" key="GridCell.Tab.0.right" timestamp="1588150028170">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028170" />
+    <state width="1804" height="367" key="GridCell.Tab.1.bottom" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.1.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.1.center" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.1.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.1.left" timestamp="1587641396730">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.1.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396730" />
+    <state width="1804" height="367" key="GridCell.Tab.1.right" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.2.bottom" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.2.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.2.center" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.2.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.2.left" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.2.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.2.right" timestamp="1587641396731">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.2.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396731" />
+    <state width="1804" height="367" key="GridCell.Tab.3.bottom" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.3.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.3.center" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.3.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.3.left" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.3.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.3.right" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.3.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.4.bottom" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.4.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.4.center" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.4.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.4.left" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.4.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+    <state width="1804" height="367" key="GridCell.Tab.4.right" timestamp="1587641396732">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="367" key="GridCell.Tab.4.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587641396732" />
+  </component>
+</project>

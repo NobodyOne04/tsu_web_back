@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "ModelBind";
+}
+
+<h1>ModelBindSep</h1>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper Web.Helpers.FieldTagHelper, Web
+@model Web.Models.FormModel
+<h1>Index</h1>
+<form method="post">
+    <div>
+        <div><field name="first" value="@Model.first"/></div>
+        <div><selector name="operation" default="@Model.operation" ></selector></div>
+        <div><field name="second" value="@Model.second"/></div>
+    </div>
+    <input type="submit" value="cals" />
+</form>
+

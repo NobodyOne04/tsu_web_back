@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@using Web
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper Web.Helpers.FieldTagHelper, Web
+
+<h1>ManualSep</h1>
+<form method="post">
+    <div>
+        <div><field name="first" /></div>
+        <div><selector name="operation"></selector></div>
+        <div><field name="second" /></div>
+    </div>
+    <input type="submit" value="cals" />
+</form>
+

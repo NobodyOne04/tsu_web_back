@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dev/RiderProjects/lab1/Web/Web.csproj",
+      "projectUniqueName": "/home/dev/back_labs/tsu_web_back/Web/Web.csproj",
       "projectName": "Web",
-      "projectPath": "/home/dev/RiderProjects/lab1/Web/Web.csproj",
+      "projectPath": "/home/dev/back_labs/tsu_web_back/Web/Web.csproj",
       "packagesPath": "/home/dev/.nuget/packages/",
-      "outputPath": "/home/dev/RiderProjects/lab1/Web/obj/",
+      "outputPath": "/home/dev/back_labs/tsu_web_back/Web/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
