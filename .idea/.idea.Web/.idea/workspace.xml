@@ -20,23 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cdf3bd6-fa3f-4ec3-85ff-f15f7039b2d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Web/bin/Debug/netcoreapp3.1/Web.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.RazorTargetAssemblyInfo.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.RazorTargetAssemblyInfo.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Debug/netcoreapp3.1/Web.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/Web.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/Web.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/obj/project.packagespec.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +31,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Web/Controllers/FormController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindPar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ManualSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Models/ErrorModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Models/FormModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/FormController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Helpers/SelectorTagHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Helpers/FieldTagHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36814677-9EF5-46D9-ADEC-CF58771DE515/C/Controller.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web/Models/ErrorModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web/Models/FormModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -69,9 +56,6 @@
     <setting file="file://$PROJECT_DIR$/Web/Views/Form/ManualSingle.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Views/Form/ResultFormModel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Views/Form/ResultForm.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindPar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ModelBindSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web/Views/Form/ManualSep.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -217,22 +201,22 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1587640469761" />
-    <state width="1804" height="275" key="GridCell.Tab.0.bottom" timestamp="1588150028172">
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom" timestamp="1588225135856">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028172" />
-    <state width="1804" height="275" key="GridCell.Tab.0.center" timestamp="1588150028169">
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588225135856" />
+    <state width="1804" height="275" key="GridCell.Tab.0.center" timestamp="1588225135856">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028169" />
-    <state width="1804" height="275" key="GridCell.Tab.0.left" timestamp="1588150028167">
+    <state width="1804" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588225135856" />
+    <state width="1804" height="275" key="GridCell.Tab.0.left" timestamp="1588225135856">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028167" />
-    <state width="1804" height="275" key="GridCell.Tab.0.right" timestamp="1588150028170">
+    <state width="1804" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588225135856" />
+    <state width="1804" height="275" key="GridCell.Tab.0.right" timestamp="1588225135856">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588150028170" />
+    <state width="1804" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588225135856" />
     <state width="1804" height="367" key="GridCell.Tab.1.bottom" timestamp="1587641396731">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>

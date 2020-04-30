@@ -20,7 +20,7 @@ public class FormController : Controller
             {
                 return View(model);
             }
-            model.Calculate();
+            model.Result = FormModel.Calculate(first, second, operation);
             return View("ResultFormModel", model);
         }
         
@@ -36,7 +36,7 @@ public class FormController : Controller
             if (!TryValidateModel(model, nameof(model))){
                 return View(model);
             }
-            model.Calculate();
+            model.Result = FormModel.Calculate(model.First, model.Second, model.Operation);
             return View("ResultFormModel", model);
         }
 
@@ -49,7 +49,7 @@ public class FormController : Controller
         [HttpPost]
         public IActionResult ManualSep(int first, string operation, int second)
         {
-            int result = FormModel().Calculate(first, second, operation);
+            float result = FormModel.Calculate(first, second, operation);
             ViewBag.expression = $"{first} {operation} {second} = {result}";
             return View("ResultForm");
         }
@@ -62,7 +62,7 @@ public class FormController : Controller
             }
             if (Request.Method == "POST")
             {
-                int result = this.calculate(first, second, operation);
+                float result = FormModel.Calculate(first, second, operation);
                 ViewBag.expression = $"{first} {operation} {second} = {result}";
                 return View("ResultForm");
             }
