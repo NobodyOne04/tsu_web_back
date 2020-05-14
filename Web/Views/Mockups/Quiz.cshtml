@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Quiz";
+}
+<h1 class="Title">@ViewData["Title"]</h1>
+
+<div class="CalcMenu">
+    <h2>@Model.First  @Model.Operand @Model.Second =</h2>
+    <form method="post">
+        <input name="YourAnswer" type="text"> @ViewData["NotANumber"]
+        <br>
+        <input type="submit" value="Next" name="Action">
+        <input type="submit" value="Finish" name="Action">
+    </form>
+</div>
