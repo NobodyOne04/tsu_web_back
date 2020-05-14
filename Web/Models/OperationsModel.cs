@@ -62,7 +62,7 @@ namespace Web.Models
         }
     }
 
-    public class CorrectAnswers
+    public sealed class CorrectAnswers
     {
         private CorrectAnswers()
         {
