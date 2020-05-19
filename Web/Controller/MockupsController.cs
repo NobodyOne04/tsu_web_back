@@ -28,7 +28,11 @@ namespace Web.Controllers
                 (answers.Answers).Add(operation);
             }
             else
+            {
                 ViewData["NotANumber"] = "Not a number!";
+                return View(operation);
+            }
+
             if (action == "Next")
                 return View(new Operations());
             return RedirectToAction("QuizResult");
