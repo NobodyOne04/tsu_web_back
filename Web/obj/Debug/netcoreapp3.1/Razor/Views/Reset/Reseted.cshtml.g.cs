@@ -19,8 +19,15 @@ using Web;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/home/dev/back_labs/tsu_web_back/Web/Views/_ViewImports.cshtml"
+using Web.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fea8050ff0b8626b2c2b7c950e6dae23e79c1d7d", @"/Views/Reset/Reseted.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7da9b87146674b93145a18d15ddfbde8744613bd", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"243bef8901b38e9eef9e38f8c66b8f401f171c9b", @"/Views/_ViewImports.cshtml")]
     public class Views_Reset_Reseted : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -1,0 +1,20 @@
+﻿
+
+@model Web.Models.ViewModel
+
+    <div class="validation" >
+        <label asp-for="PrivateUserInfoModel.email"></label>
+        <input type="text" asp-for="PrivateUserInfoModel.email" />
+        <span asp-validation-for="PrivateUserInfoModel.email"></span>
+    </div>
+    <div class="validation" >
+        <label asp-for="PrivateUserInfoModel.password"></label>
+        <input type="password" asp-for="PrivateUserInfoModel.password" />
+        <span asp-validation-for="PrivateUserInfoModel.password"></span>
+    </div>
+    <div class="validation" >
+        <label asp-for="PrivateUserInfoModel.confirmPassword"></label>
+        <input type="password" asp-for="PrivateUserInfoModel.confirmPassword" />
+        <span asp-validation-for="PrivateUserInfoModel.confirmPassword"></span>
+    </div>
+    <input type="submit" value="Complete Sign Up" name="action" />

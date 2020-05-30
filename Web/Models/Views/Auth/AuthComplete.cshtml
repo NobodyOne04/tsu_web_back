@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h2>Sign Up Result</h2>
+@model Web.Models.ViewModel
+
+<ul style="list-style-type: none">
+    <li>
+        @Html.DisplayFor(item => item.UserInfoModel.FirstName)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.UserInfoModel.SecondName)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.UserInfoModel.Day)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.UserInfoModel.Month)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.UserInfoModel.Year)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.PrivateUserInfoModel.email)
+    </li>
+    <li>
+        @Html.DisplayFor(item => item.PrivateUserInfoModel.password)
+    </li>
+</ul>

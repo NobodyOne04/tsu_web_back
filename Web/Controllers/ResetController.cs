@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,11 +32,11 @@ namespace Web.Controllers
                 }
             }
             ViewBag.email = false;
-            CheckModel modelCodeTemp = new CheckModel();
+            CodeModel modelCodeTemp = new CodeModel();
             modelCodeTemp.code = GetCode(5);
             return View("Index", modelCodeTemp);
         }
-        public IActionResult Verify(CheckModel model)
+        public IActionResult Verify(CodeModel model)
         {
             if (!TryValidateModel(model,nameof(model)))
             {

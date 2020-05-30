@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "textArea";
+}
+
+<h2>DropDown</h2>
+<form method="post">
+    Text
+    <select name="months">
+        @foreach (var item in ViewBag.months)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+

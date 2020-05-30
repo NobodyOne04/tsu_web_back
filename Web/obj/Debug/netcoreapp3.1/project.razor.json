@@ -20521,6 +20521,26 @@
   "RootNamespace": "Web",
   "Documents": [
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Home/Privacy.cshtml",
+      "TargetPath": "Models\\Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Reset/_EmailForm.cshtml",
+      "TargetPath": "Models\\Views\\Reset\\_EmailForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/ResultView.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\ResultView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/checkBox.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\checkBox.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/ListBoxResult.cshtml",
       "TargetPath": "Views\\Controls\\ListBoxResult.cshtml",
       "FileKind": "mvc"
@@ -20531,8 +20551,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/SignUp.cshtml",
-      "TargetPath": "Views\\Mockups\\SignUp.cshtml",
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Auth/AuthComplete.cshtml",
+      "TargetPath": "Models\\Views\\Auth\\AuthComplete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20541,8 +20561,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/textArea.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\textArea.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Shared/Error.cshtml",
+      "TargetPath": "Models\\Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20556,8 +20586,58 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Home/Contact.cshtml",
+      "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/dropDown.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\dropDown.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/Index.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Home/Index.cshtml",
+      "TargetPath": "Models\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Auth/Auth.cshtml",
+      "TargetPath": "Models\\Views\\Auth\\Auth.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/listBox.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\listBox.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Auth/Auth.cshtml",
+      "TargetPath": "Views\\Auth\\Auth.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Home/About.cshtml",
+      "TargetPath": "Models\\Views\\Home\\About.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/DropDownListResult.cshtml",
       "TargetPath": "Views\\Controls\\DropDownListResult.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/textBox.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\textBox.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20566,18 +20646,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/SignUpAlreadyExists.cshtml",
-      "TargetPath": "Views\\Mockups\\SignUpAlreadyExists.cshtml",
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Home/About.cshtml",
+      "TargetPath": "Views\\Home\\About.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/SignUpCredentials.cshtml",
-      "TargetPath": "Views\\Mockups\\SignUpCredentials.cshtml",
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Shared/_CookieConsentPartial.cshtml",
+      "TargetPath": "Models\\Views\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/_CheckForm.cshtml",
-      "TargetPath": "Views\\Reset\\_CheckForm.cshtml",
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Reset/Index.cshtml",
+      "TargetPath": "Models\\Views\\Reset\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Auth/_PrivateUserForm.cshtml",
+      "TargetPath": "Models\\Views\\Auth\\_PrivateUserForm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20591,13 +20676,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Auth/_UserForm.cshtml",
+      "TargetPath": "Models\\Views\\Auth\\_UserForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/SignUpResult.cshtml",
-      "TargetPath": "Views\\Mockups\\SignUpResult.cshtml",
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/_ViewStart.cshtml",
+      "TargetPath": "Models\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/_CodeForm.cshtml",
+      "TargetPath": "Views\\Reset\\_CodeForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Models\\Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Reset/Reseted.cshtml",
+      "TargetPath": "Models\\Views\\Reset\\Reseted.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Models\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20606,8 +20716,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Auth/AuthComplete.cshtml",
+      "TargetPath": "Views\\Auth\\AuthComplete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/ListBox.cshtml",
       "TargetPath": "Views\\Controls\\ListBox.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Controls/radio.cshtml",
+      "TargetPath": "Models\\Views\\Controls\\radio.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20616,8 +20736,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Auth/_UserForm.cshtml",
+      "TargetPath": "Views\\Auth\\_UserForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Shared/_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Home/Contact.cshtml",
+      "TargetPath": "Models\\Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/Reset/_CodeForm.cshtml",
+      "TargetPath": "Models\\Views\\Reset\\_CodeForm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20631,8 +20771,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Models/Views/_ViewImports.cshtml",
+      "TargetPath": "Models\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Auth/_PrivateUserForm.cshtml",
+      "TargetPath": "Views\\Auth\\_PrivateUserForm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20643,11 +20793,6 @@
     {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/CheckBoxResult.cshtml",
       "TargetPath": "Views\\Controls\\CheckBoxResult.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/Index.cshtml",
-      "TargetPath": "Views\\Mockups\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

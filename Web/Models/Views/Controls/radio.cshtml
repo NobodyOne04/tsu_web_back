@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "textArea";
+}
+
+<h2>Radio</h2>
+<form method="post">
+    Text
+    <ul>
+        @foreach (var item in ViewBag.months)
+        {
+        <li>
+            <input type="radio" name="months" value="@item" id="test" checked="checked" />
+            @item
+        </li>
+        }
+    </ul>
+    <input type="submit" value="Submit" />
+</form>

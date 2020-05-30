@@ -20,6 +20,13 @@ using Web;
 #line hidden
 #nullable disable
 #nullable restore
+#line 2 "/home/dev/back_labs/tsu_web_back/Web/Views/_ViewImports.cshtml"
+using Web.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/ListBoxResult.cshtml"
 using Web.Forms;
 
@@ -27,7 +34,7 @@ using Web.Forms;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c2fe8cd9ae4e7c3dc7bdd49301380373ca0c333c", @"/Views/Controls/ListBoxResult.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7da9b87146674b93145a18d15ddfbde8744613bd", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"243bef8901b38e9eef9e38f8c66b8f401f171c9b", @"/Views/_ViewImports.cshtml")]
     public class Views_Controls_ListBoxResult : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Web.Forms.ListBoxViewModel>
     {
         #pragma warning disable 1998
