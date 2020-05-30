@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
 {
-    public class SignUpSec : SignUpFst
+    public class SignIn : SignUp
     {
         [Required]
         public String Email { get; set; }

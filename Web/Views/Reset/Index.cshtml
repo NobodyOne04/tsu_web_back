@@ -1,0 +1,13 @@
+﻿
+
+<h2>Reset Your Password</h2>
+
+
+@if (ViewBag.email)
+{
+    @Html.Partial("_EmailForm")
+}
+else
+{
+    @Html.Partial("_CheckForm")
+}

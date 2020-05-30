@@ -20,13 +20,13 @@ namespace Web.Controllers
 
         public IActionResult SignUp()
         {
-            SignUpFst model = new SignUpFst();
+            SignUp model = new SignUp();
             return this.View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUp(SignUpFst model)
+        public IActionResult SignUp(SignUp model)
         {
             String Day = this.Request.Form["Day"];
             String Month = this.Request.Form["Month"];
@@ -35,7 +35,7 @@ namespace Web.Controllers
 
             if (RegistrationService.TryToFind(model)) return this.View("SignUpAlreadyExists", model);
 
-            SignUpSec modelsec = new SignUpSec();
+            SignIn modelsec = new SignIn();
             modelsec.born = model.born;
             modelsec.FName = model.FName;
             modelsec.gender = model.gender;
@@ -43,36 +43,36 @@ namespace Web.Controllers
             return this.View("SignUpCredentials", modelsec);
         }
 
-        public IActionResult SignUpAlreadyExists(SignUpFst model)
+        public IActionResult SignUpAlreadyExists(SignUp model)
         {
             return this.View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUpAlreadyExists(SignUpFst model, String action)
+        public IActionResult SignUpAlreadyExists(SignUp model, String action)
         {
             if (action == "Sign") {
-                SignUpSec modelsec = new SignUpSec();
+                SignIn modelsec = new SignIn();
                 modelsec.born = model.born;
                 modelsec.FName = model.FName;
                 modelsec.gender = model.gender;
                 modelsec.SName = model.SName;
                 return this.View("SignUpCredentials", modelsec);
             }
-            model = new SignUpFst();
+            model = new SignUp();
             return this.View("SignUp", model);
         }
 
         [HttpGet]
-        public IActionResult SignUpCredentials(SignUpSec model)
+        public IActionResult SignUpCredentials(SignIn model)
         {
             return this.View(model);
         }
 
         [HttpPost, ActionName("SignUpCredentials")]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUpCredentialsConfirm(SignUpSec model)
+        public IActionResult SignUpCredentialsConfirm(SignIn model)
         {
             ValidatePassword(model);
             if (!this.ModelState.IsValid)
@@ -85,12 +85,12 @@ namespace Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUpResult(SignUpSec model)
+        public IActionResult SignUpResult(SignIn model)
         {
             return this.View();
         }
 
-        private void ValidatePassword(SignUpSec model)
+        private void ValidatePassword(SignIn model)
         {
             if (model.Password != model.ConfPassword) this.ModelState.AddModelError("Password", "Passwords don't the same");
         }

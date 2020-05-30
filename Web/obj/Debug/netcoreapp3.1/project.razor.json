@@ -20556,16 +20556,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/Succeed.cshtml",
-      "TargetPath": "Views\\Reset\\Succeed.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/CodeVerification.cshtml",
-      "TargetPath": "Views\\Reset\\CodeVerification.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Controls/DropDownListResult.cshtml",
       "TargetPath": "Views\\Controls\\DropDownListResult.cshtml",
       "FileKind": "mvc"
@@ -20586,8 +20576,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/_CheckForm.cshtml",
+      "TargetPath": "Views\\Reset\\_CheckForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/_EmailForm.cshtml",
+      "TargetPath": "Views\\Reset\\_EmailForm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20598,11 +20598,6 @@
     {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Mockups/SignUpResult.cshtml",
       "TargetPath": "Views\\Mockups\\SignUpResult.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/PasswordReset.cshtml",
-      "TargetPath": "Views\\Reset\\PasswordReset.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20638,6 +20633,11 @@
     {
       "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/dev/back_labs/tsu_web_back/Web/Views/Reset/Reseted.cshtml",
+      "TargetPath": "Views\\Reset\\Reseted.cshtml",
       "FileKind": "mvc"
     },
     {

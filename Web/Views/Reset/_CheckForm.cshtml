@@ -1,0 +1,16 @@
+﻿
+
+@model Web.Models.CheckModel
+<div>
+    <form asp-antiforgery="true" asp-action="Verify" asp-controller="Reset">
+        <div class="validation">
+            <label asp-for="confirmCode"></label>
+            <input type="text" asp-for="confirmCode" />
+            <span asp-validation-for="confirmCode"></span>
+        </div>
+        <h3>@Model.code</h3>
+        <input style="display:none" name="code" value="@Model.code" />
+        <button type="submit" name="submit">Verify</button>
+    </form>
+</div>
+

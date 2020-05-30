@@ -8,9 +8,9 @@ namespace Web.Services
 {
     public sealed class RegistrationService : IRegistrationService
     {
-        private readonly List<SignUpSec> Persons = new List<SignUpSec>();
+        private readonly List<SignIn> Persons = new List<SignIn>();
 
-        public void SendPerson(SignUpSec obj)
+        public void SendPerson(SignIn obj)
         {
             lock (this.Persons)
             {
@@ -21,8 +21,8 @@ namespace Web.Services
             String date = day + ' ' + month + ' ' + year;
             return date;
         }
-        public bool TryToFind(SignUpFst obj) {
-            foreach (SignUpFst a in Persons) {
+        public bool TryToFind(SignUp obj) {
+            foreach (SignUp a in Persons) {
                 if (obj.FName == a.FName && obj.SName == a.FName && obj.gender == a.gender && obj.born == a.born) return true;
             }
             return false;

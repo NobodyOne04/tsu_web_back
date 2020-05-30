@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
 {
-    public class SignUpFst
+    public class SignUp
     {
         [Required]
         public String FName { get; set; }

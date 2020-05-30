@@ -72,3 +72,7 @@
 /home/dev/back_labs/tsu_web_back/Web/bin/Debug/netcoreapp3.1/Web.Views.pdb
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.Views.pdb
 /home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Web.csproj.CopyComplete
+/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/Reset/Index.cshtml.g.cs
+/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/Reset/Reseted.cshtml.g.cs
+/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/Reset/_EmailForm.cshtml.g.cs
+/home/dev/back_labs/tsu_web_back/Web/obj/Debug/netcoreapp3.1/Razor/Views/Reset/_CheckForm.cshtml.g.cs
