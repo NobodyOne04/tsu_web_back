@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/dev/RiderProjects/lab1/Web/Web.csproj": {}
+    "/home/dev/back_labs/tsu_web_back/Web/Web.csproj": {}
   },
   "projects": {
-    "/home/dev/RiderProjects/lab1/Web/Web.csproj": {
+    "/home/dev/back_labs/tsu_web_back/Web/Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dev/RiderProjects/lab1/Web/Web.csproj",
+        "projectUniqueName": "/home/dev/back_labs/tsu_web_back/Web/Web.csproj",
         "projectName": "Web",
-        "projectPath": "/home/dev/RiderProjects/lab1/Web/Web.csproj",
+        "projectPath": "/home/dev/back_labs/tsu_web_back/Web/Web.csproj",
         "packagesPath": "/home/dev/.nuget/packages/",
-        "outputPath": "/home/dev/RiderProjects/lab1/Web/obj/",
+        "outputPath": "/home/dev/back_labs/tsu_web_back/Web/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -38,6 +38,40 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Composition": {
+              "target": "Package",
+              "version": "[1.0.31, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "System.Composition": {
+              "target": "Package",
+              "version": "[1.4.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -48,6 +82,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -56,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.300/RuntimeIdentifierGraph.json"
         }
       }
     }
