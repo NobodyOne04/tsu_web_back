@@ -29,6 +29,7 @@ namespace Web.Controllers
             if (this.HttpContext.User.IsInRole(ApplicationRoles.Administrators)) ViewBag.Can = true;
             else ViewBag.Can = false;
             return this.View(await this._context.ForumCategorys.Include(f => f.Forums)
+                /*.Include("Forums.ForumTopics")*/
                 .ThenInclude(f => f.ForumTopics)
                 .ToListAsync());
         }

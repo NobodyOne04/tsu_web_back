@@ -28,6 +28,7 @@ namespace Web.Controllers
             this.userPermissions = userPermissions;
         }
 
+        // GET: Posts
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
@@ -40,6 +41,7 @@ namespace Web.Controllers
             return this.View(items);
         }
 
+        // GET: Posts/Details/5
         [AllowAnonymous]
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -63,6 +65,7 @@ namespace Web.Controllers
             return this.View(post);
         }
 
+        // GET: Posts/Create
         [Authorize]
         public async Task<IActionResult> Create()
         {
@@ -71,6 +74,9 @@ namespace Web.Controllers
             return this.View(new PostEditModel());
         }
 
+        // POST: Posts/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -100,6 +106,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: Posts/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -126,6 +133,9 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // POST: Posts/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid? id, PostEditModel model)
@@ -158,6 +168,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: Posts/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -178,6 +189,7 @@ namespace Web.Controllers
             return this.View(post);
         }
 
+        // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid? id)

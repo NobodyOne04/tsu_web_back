@@ -31,16 +31,19 @@ namespace Web.Controllers
             this.logger = loggerFactory.CreateLogger<AccountController>();
         }
 
+        // GET: /Account/Login
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login(String returnUrl = null)
         {
+            // Clear the existing external cookie to ensure a clean login process
             await this.HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             this.ViewData["ReturnUrl"] = returnUrl;
             return this.View();
         }
 
+        // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -49,6 +52,8 @@ namespace Web.Controllers
             this.ViewData["ReturnUrl"] = returnUrl;
             if (this.ModelState.IsValid)
             {
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await this.signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
@@ -66,9 +71,11 @@ namespace Web.Controllers
                 return this.View(model);
             }
 
+            // If we got this far, something failed, redisplay form
             return this.View(model);
         }
 
+        // GET: /Account/Register
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register(String returnUrl = null)
@@ -77,6 +84,7 @@ namespace Web.Controllers
             return this.View();
         }
 
+        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -97,9 +105,11 @@ namespace Web.Controllers
                 this.AddErrors(result);
             }
 
+            // If we got this far, something failed, redisplay form
             return this.View(model);
         }
 
+        // POST: /Account/Logout
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

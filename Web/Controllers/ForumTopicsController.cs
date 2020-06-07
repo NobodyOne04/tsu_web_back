@@ -26,6 +26,7 @@ namespace Web.Controllers
             this.userPermissions = userPermissions;
         }
 
+        // GET: ForumTopics
         public async Task<IActionResult> Index(Guid? ForumId)
         {
             if (ForumId == null)
@@ -53,6 +54,7 @@ namespace Web.Controllers
 
         }
 
+        // GET: ForumTopics/Create
         public async Task<IActionResult> Create(Guid? ForumId)
         {
             if (ForumId == null)
@@ -72,6 +74,10 @@ namespace Web.Controllers
             return this.View(new ForumTopicCreateModel());
         }
 
+
+        // POST: ForumTopics/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Guid? ForumId, ForumTopicCreateModel model)
@@ -97,6 +103,7 @@ namespace Web.Controllers
                     Name = model.Name,
                     Created  = DateTime.Now,
                     ApplicationUserId = _userManager.GetUserId(User)
+                   // ApplicationUser = _userManager.GetUserName(User) если б поле имя в appuser добавил
                 };
 
                 this._context.Add(topic);
@@ -109,6 +116,7 @@ namespace Web.Controllers
         }
 
 
+        // GET: ForumTopics/Edit/5
         public async Task<IActionResult> Edit(Guid? TopicId)
         {
             if (TopicId == null)
@@ -118,6 +126,7 @@ namespace Web.Controllers
 
             var topic = await this._context.ForumTopics
                 .SingleOrDefaultAsync(m => m.Id == TopicId);
+           // if (topic == null || !this.userPermissions.CanEditPostComment(postComment))
             if (topic == null)
             {
                 return this.NotFound();
@@ -131,6 +140,10 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+
+        // POST: ForumTopics/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid? TopicId, ForumTopicCreateModel model)
@@ -160,6 +173,8 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+
+        // GET: ForumTopics/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -179,6 +194,7 @@ namespace Web.Controllers
             return View(forumTopic);
         }
 
+        // POST: ForumTopics/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

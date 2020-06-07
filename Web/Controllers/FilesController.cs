@@ -33,12 +33,14 @@ namespace Web.Controllers
             _mimeMappingService = mimeMappingService;
         }
 
+        // GET: Files
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Files.Include(f => f.Folder);
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: Files/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -58,6 +60,10 @@ namespace Web.Controllers
             return View(file);
         }
 
+
+
+
+        // GET: Files/Create
         public IActionResult Create(Guid? id)
         {
             ViewBag.Id = id;
@@ -65,15 +71,19 @@ namespace Web.Controllers
         }
 
 
+
+        // POST: Files/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Guid id, FileViewModel model)
         {
             if (!ModelState.IsValid)
-            { 
-                return RedirectToAction("Details","Folder",new { id = id}); 
-            }
+            { return RedirectToAction("Details","Folder",new { id = id}); }
 
+  ////////////////////////////////////////////////////////
+            // имя и тип 
             var fileName = Path.GetFileName(ContentDispositionHeaderValue.Parse(model.FilePath.ContentDisposition).FileName.Trim('"'));
             var fileExt = Path.GetExtension(fileName);
 
@@ -87,6 +97,7 @@ namespace Web.Controllers
             if (filee.Name == null) filee.Name = fileName;
 
             var path = Path.Combine(_hostingEnvironment.WebRootPath, "attachments", filee.Id.ToString("N") + fileExt);
+            //filee.FilePath = $"/attachments/{attachment.Id:N}{fileExt}";
 
             using (var fileStream = new FileStream(path, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
             {
@@ -96,14 +107,22 @@ namespace Web.Controllers
             _context.Files.Add(filee);
             _context.SaveChanges();
             return this.RedirectToAction("Details","Folders",new { id = id});
+///////////////////////////////////////////////////////////////////
+
         }
 
+
+
+        // GET: Files/Edit/5
         public IActionResult Edit(Guid? id)
         {
             ViewBag.Id = id;
             return View(new FileViewModel());
         }
 
+        // POST: Files/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Guid id, FileViewModel model )
@@ -118,6 +137,7 @@ namespace Web.Controllers
             return RedirectToAction("Details","Files", new { id = id});
         }
 
+        // GET: Files/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -136,6 +156,7 @@ namespace Web.Controllers
             return View(file);
         }
 
+        // POST: Files/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

@@ -19,12 +19,14 @@ namespace Web.Controllers
             _context = context;
         }
 
+        // GET: Forums
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Forums.Include(f => f.ForumCategory);
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: Forums/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -43,12 +45,16 @@ namespace Web.Controllers
             return View(forum);
         }
 
+        // GET: Forums/Create
         public IActionResult Create()
         {
             ViewData["ForumCategoryId"] = new SelectList(_context.ForumCategorys, "Id", "Name");
             return View();
         }
 
+        // POST: Forums/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ForumCategoryId,Name,Description")] Forum forum)
@@ -64,6 +70,7 @@ namespace Web.Controllers
             return View(forum);
         }
 
+        // GET: Forums/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -80,6 +87,9 @@ namespace Web.Controllers
             return View(forum);
         }
 
+        // POST: Forums/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,ForumCategoryId,Name,Description")] Forum forum)
@@ -113,6 +123,7 @@ namespace Web.Controllers
             return View(forum);
         }
 
+        // GET: Forums/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -131,6 +142,7 @@ namespace Web.Controllers
             return View(forum);
         }
 
+        // POST: Forums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

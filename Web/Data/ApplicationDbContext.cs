@@ -41,10 +41,16 @@ namespace Web.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             builder.Entity<Post>().HasOne(x => x.Creator).WithMany().OnDelete(DeleteBehavior.Restrict);
             builder.Entity<PostComment>().HasOne(x => x.Creator).WithMany().OnDelete(DeleteBehavior.Restrict);
             builder.Entity<ForumTopic>().HasOne(x => x.ApplicationUser).WithMany().OnDelete(DeleteBehavior.Restrict);
             builder.Entity<ForumMessage>().HasOne(x => x.ApplicationUser).WithMany().OnDelete(DeleteBehavior.Restrict);
+
+
+            //builder.Entity<OneToOneFirst>()
+            //.HasRequired(x => x.Second)                      для 1 к 1
+            //.WithRequiredPrincipal(x => x.First);
         }
     }
 }

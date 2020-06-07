@@ -49,7 +49,7 @@ namespace Web
                 {
                     UserName = "admin@localhost.local",
                     Email = "admin@localhost.local"
-                }, "AdminPass123!");
+                }, "Password123!");
                 if (!userResult.Succeeded)
                 {
                     throw new InvalidOperationException($"Unable to create admin@localhost.local user");

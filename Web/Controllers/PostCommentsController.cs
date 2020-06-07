@@ -28,6 +28,7 @@ namespace Web.Controllers
             this.userPermissions = userPermissions;
         }
 
+        // GET: PostComments/Create
         public async Task<IActionResult> Create(Guid? postId)
         {
             if (postId == null)
@@ -46,6 +47,9 @@ namespace Web.Controllers
             return this.View(new PostCommentEditModel());
         }
 
+        // POST: PostComments/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Guid? postId, PostCommentEditModel model)
@@ -85,6 +89,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: PostComments/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -109,6 +114,9 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // POST: PostComments/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid? id, PostCommentEditModel model)
@@ -139,6 +147,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: PostComments/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -159,6 +168,7 @@ namespace Web.Controllers
             return this.View(postComment);
         }
 
+        // POST: PostComments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid? id)

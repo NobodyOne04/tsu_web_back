@@ -28,6 +28,8 @@ namespace Web.Controllers
             this.logger = loggerFactory.CreateLogger<ManageController>();
         }
 
+        //
+        // GET: /Manage/Index
         [HttpGet]
         public async Task<IActionResult> Index(ManageMessageId? message = null)
         {
@@ -45,12 +47,14 @@ namespace Web.Controllers
             return this.View();
         }
 
+        // GET: /Manage/ChangePassword
         [HttpGet]
         public IActionResult ChangePassword()
         {
             return this.View();
         }
 
+        // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)

@@ -22,11 +22,13 @@ namespace Web.Controllers
             this.context = context;    
         }
 
+        // GET: PostCategories
         public async Task<IActionResult> Index()
         {
             return this.View(await this.context.PostCategories.ToListAsync());
         }
 
+        // GET: PostCategories/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -44,11 +46,15 @@ namespace Web.Controllers
             return this.View(postCategory);
         }
 
+        // GET: PostCategories/Create
         public IActionResult Create()
         {
             return this.View(new PostCategoryEditModel());
         }
 
+        // POST: PostCategories/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PostCategoryEditModel model)
@@ -68,6 +74,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: PostCategories/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -89,7 +96,9 @@ namespace Web.Controllers
             return this.View(model);
         }
 
-
+        // POST: PostCategories/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid? id, PostCategoryEditModel model)
@@ -115,6 +124,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: PostCategories/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -132,6 +142,7 @@ namespace Web.Controllers
             return this.View(postCategory);
         }
 
+        // POST: PostCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

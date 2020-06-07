@@ -1,30 +1,38 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Web.Data;
 using Web.Models;
 using Web.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
         }
+
+        public IConfiguration Configuration { get; }
+
+
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add framework services.
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(this.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -36,6 +44,7 @@ namespace Web
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
@@ -56,6 +65,7 @@ namespace Web
 
             app.UseStaticFiles();
             app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -93,12 +103,12 @@ namespace Web
             {
                 var userResult = await userManager.CreateAsync(new ApplicationUser
                 {
-                    UserName = "admin@localhost.local",
-                    Email = "admin@localhost.local"
-                }, "PasswordLab6");
+                    UserName = "BestAdminAround@gmail.com",
+                    Email = "BestAdminAround@gmail.com"
+                }, "NeZlomaiteSite1337!");
                 if (!userResult.Succeeded)
                 {
-                    throw new InvalidOperationException($"Unable to create admin@localhost.local user");
+                    throw new InvalidOperationException($"Unable to create BestAdminAround@gmail.com user");
                 }
 
                 adminUser = await userManager.FindByNameAsync("admin@localhost.local");
@@ -109,5 +119,7 @@ namespace Web
                 await userManager.AddToRoleAsync(adminUser, adminsRole.Name);
             }
         }
+
+
     }
 }

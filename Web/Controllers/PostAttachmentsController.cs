@@ -35,6 +35,7 @@ namespace Web.Controllers
             this.hostingEnvironment = hostingEnvironment;
         }
 
+        // GET: PostAttachments/Create
         public async Task<IActionResult> Create(Guid? postId)
         {
             if (postId == null)
@@ -53,6 +54,9 @@ namespace Web.Controllers
             return this.View(new PostAttachmentEditModel());
         }
 
+        // POST: PostAttachments/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Guid? postId, PostAttachmentEditModel model)
@@ -100,6 +104,7 @@ namespace Web.Controllers
             return this.View(model);
         }
 
+        // GET: PostAttachments/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -118,6 +123,7 @@ namespace Web.Controllers
             return this.View(postAttachment);
         }
 
+        // POST: PostAttachments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid? id)

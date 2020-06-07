@@ -28,6 +28,10 @@ namespace Web.Controllers
             _userManager = userManager;
             _hostingEnvironment = hostingEnvironment;
         }
+
+
+
+        // GET: Folders
    
         public IActionResult Index()
         {
@@ -39,6 +43,7 @@ namespace Web.Controllers
             return View(index);
         }
 
+        // GET: Folders/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -51,12 +56,16 @@ namespace Web.Controllers
             return View(folder);
         }
 
+        // GET: Folders/Create
         public IActionResult Create()
         {
             var model = new FolderViewModel();
             return View(model);
         }
 
+        // POST: Folders/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(FolderViewModel model)
@@ -73,12 +82,16 @@ namespace Web.Controllers
                 return RedirectToAction("Index");     
         }
 
+        // GET: Folders/Create
         public IActionResult Create2(Guid? id)
         {
             var model = new FolderViewModel { FolderId = id};
             return View(model);
         }
 
+        // POST: Folders/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create2(FolderViewModel model, Guid? id)
@@ -98,6 +111,7 @@ namespace Web.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
+        // GET: Folders/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -109,6 +123,9 @@ namespace Web.Controllers
             return View(new FolderViewModel());
         }
 
+        // POST: Folders/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(FolderViewModel model, Guid? id)
@@ -124,6 +141,7 @@ namespace Web.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Folders/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -134,6 +152,7 @@ namespace Web.Controllers
             return View(folder);
         }
 
+        // POST: Folders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid? id)
