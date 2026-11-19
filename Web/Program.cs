@@ -1,23 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+using Backend6.Infrastructure;
+using Web;
 
-namespace Web
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddBackend6(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ActorAccessor>();
+builder.Services.AddControllersWithViews(o => o.Filters.Add<DomainErrorsFilter>());
+builder.Services.ConfigureApplicationCookie(o =>
 {
-    public class Program
+    o.LoginPath = "/Account/Login";
+    // signed in but not allowed: a plain 403, not a redirect to a page that doesn't exist
+    o.Events.OnRedirectToAccessDenied = context =>
     {
-        public static void Main(string[] args)
-        {
-            Program.BuildWebHost(args).MigrateDatabase().Run();
-        }
+        context.Response.StatusCode = StatusCodes.Status403Forbidden;
+        return Task.CompletedTask;
+    };
+});
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
-    }
+var app = builder.Build();
+
+await app.Services.InitializeBackend6Async(app.Configuration);
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
 }
+
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllerRoute("default", "{controller=Posts}/{action=Index}/{id?}");
+
+await app.RunAsync();
+
+public partial class Program;  // visible to WebApplicationFactory in the tests
