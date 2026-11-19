@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
@@ -37,14 +36,8 @@ namespace Web.Models
                     Result = first * second;
                     break;
                 case "/":
-                    try
-                    {
-                        Result = (float)first / second;
-                    }
-                    catch (DivideByZeroException error)
-                    {
-                        Result = float.MaxValue;
-                    }
+                    // float division by zero gives Infinity instead of throwing, so check first
+                    Result = second == 0 ? float.MaxValue : (float)first / second;
                     break;
                 default:
                     Result = 0;
