@@ -13,8 +13,8 @@ lab can be checked out and run on its own; `main` keeps only that skeleton.
   authentication and password reset; `lab5` hospital database with EF Core and SQL Server;
   `lab6` forum and blog with ASP.NET Identity, file and folder management. Each later lab
   builds on the previous one's history.
-- **Build output**: the 2020 commits tracked `Web/bin` and `Web/obj`; `main` now ignores them,
-  the lab branches keep their old copies (they are the submitted state).
+- **Build output**: the 2020 commits tracked `Web/bin` and `Web/obj`; untracked everywhere since
+  [0003](0003-net10-and-layered-labs-5-6.adr).
 - **Databases**: labs 5-6 use `Server=(localdb)\mssqllocaldb` (Windows LocalDB) with trusted
   connections; no passwords are stored.
 

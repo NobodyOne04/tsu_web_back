@@ -1,0 +1,43 @@
+# 0003. Every lab on .NET 10; labs 5 and 6 layered (Core / Application / Infrastructure / Web)
+
+- Status: Accepted
+- Date: 2026-11-20
+
+All six lab branches move from .NET Core 3.1 to .NET 10 (LTS) and build and run on current
+machines. Labs 5 and 6, the two with real domains, are rebuilt as layered applications with
+tests; labs 1-4 are too small for layers and are only retargeted and cleaned. Chosen by the owner
+on 2026-11-20.
+
+## Technical details
+- **Problem**: .NET Core 3.1 has been out of support since December 2022 and doesn't install on
+  current machines; labs 5-6 needed Windows LocalDB; lab branches tracked `bin/` and `obj/`; all
+  logic sat in controllers; lab 6 had real security holes (unauthenticated forum management,
+  forgeable message authors, public uploads, downloadable drive files, a hard-coded admin
+  password, a seeding bug that crashed the second start).
+- **All labs**: `net10.0` with `RollForward=Major`, so they also run on newer runtimes; build
+  output and IDE folders untracked; small fixes found on the way (float division by zero, the
+  `Controller` folder name, synchronous `Html.Partial`).
+- **Labs 5 and 6**, same shape:
+  - `src/BackendN.Core`: entities with their rules, encapsulated (private setters, behaviour
+    methods), no ASP.NET or EF Core. `DomainException` (shown in forms), `NotFoundException`
+    (404); lab 6 adds `Actor` and `ForbiddenException` (403, or the login page when anonymous).
+  - `src/BackendN.Application`: ports (repositories per aggregate, `IUnitOfWork`; lab 6 also
+    `IFileStore`, `IClock`) and services, one per area.
+  - `src/BackendN.Infrastructure`: EF Core 10 on SQLite (lab 6 with ASP.NET Identity),
+    repositories, migrations (`dotnet-ef` as a local tool), the DI composition root.
+  - `Web`: minimal hosting, thin controllers, forms; databases migrate on start.
+  - `tests/BackendN.Tests`: xUnit domain tests, and the whole app through
+    `WebApplicationFactory` on temporary storage.
+- **Lab 6 specifics**: permissions in the domain (authors and admins edit, admins manage
+  categories and forums, drive folders private); uploads outside `wwwroot` under random names,
+  10 MB, served only through permission-checked actions, raster images inline and everything else
+  as a download with `nosniff`; the admin comes only from `Admin:Email` / `Admin:Password`.
+- **Unchanged**: one branch per lab ([0002](0002-one-branch-per-lab.adr)); each lab's PR targets
+  its own branch.
+
+## Technologies and alternatives
+- Involved: .NET 10, ASP.NET Core MVC, EF Core 10 + SQLite, ASP.NET Identity, xUnit,
+  Microsoft.AspNetCore.Mvc.Testing.
+- Alternatives: .NET 8 (LTS too, but ends sooner); SQL Server in Docker (heavier than a lab
+  needs; the layers make swapping the provider a one-line change); layers for labs 1-4 (more
+  ceremony than code).
