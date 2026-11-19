@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Web.Models
 {
     public class ValueModel
     {
         public readonly int randValueFirst, randValueSecond;
-        
-        private Dictionary<string, string> operation;
+
         public ValueModel()
         {
             Random rnd = new Random();
@@ -30,19 +28,9 @@ namespace Web.Models
             return this.randValueFirst * this.randValueSecond;
         }
 
-        public float Divide()
-        {
-            float div;
-            try
-            {
-                div = (float)this.randValueFirst / this.randValueSecond;
-            }
-            catch (DivideByZeroException e)
-            {
-                div = float.MaxValue;
-            }
-            return div;   
-        }
+        // float division by zero gives Infinity instead of throwing, so check first
+        public float Divide() =>
+            randValueSecond == 0 ? float.MaxValue : (float)randValueFirst / randValueSecond;
 
     }
 }
