@@ -5,9 +5,9 @@
 
 @if (ViewBag.email)
 {
-    @Html.Partial("_EmailForm")
+    <partial name="_EmailForm" />
 }
 else
 {
-    @Html.Partial("_CodeForm")
+    <partial name="_CodeForm" />
 }
