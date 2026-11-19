@@ -1,131 +1,50 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Backend5.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Web.Data;
-using Web.Models;
 using Web.Forms;
 
-namespace Web.Controllers
+namespace Web.Controllers;
+
+/// <summary>The labs a hospital works with.</summary>
+public class HospitalLabsController(HospitalService hospitals, LabService labs) : FormController
 {
-    public class HospitalLabsController : Controller
+    public async Task<IActionResult> Index(int hospitalId)
     {
-        private readonly ApplicationDbContext context;
+        var hospital = await hospitals.GetAsync(hospitalId);
+        ViewBag.Hospital = hospital;
+        return View(hospital.Labs.OrderBy(l => l.Lab.Name));
+    }
 
-        public HospitalLabsController(ApplicationDbContext context)
-        {
-            this.context = context;
-        }
+    public async Task<IActionResult> Create(int hospitalId) => await ShowForm(hospitalId, new HospitalLabCreateForm());
 
-        public async Task<IActionResult> Index(Int32? hospitalId)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
+    [HttpPost, ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(int hospitalId, HospitalLabCreateForm model)
+    {
+        IActionResult showForm = await ShowForm(hospitalId, model);
+        return await SubmitAsync(
+            () => hospitals.AttachLabAsync(hospitalId, model.LabId),
+            () => RedirectToAction(nameof(Index), new { hospitalId }),
+            () => showForm);
+    }
 
-            var hospital = await this.context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
+    public async Task<IActionResult> Delete(int hospitalId, int labId)
+    {
+        var hospital = await hospitals.GetAsync(hospitalId);
+        var link = hospital.Labs.SingleOrDefault(l => l.LabId == labId);
+        return link is null ? NotFound() : View(link);
+    }
 
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int hospitalId, int labId)
+    {
+        await hospitals.DetachLabAsync(hospitalId, labId);
+        return RedirectToAction(nameof(Index), new { hospitalId });
+    }
 
-            var items = await this.context.HospitalLabs
-                .Include(h => h.Hospital)
-                .Include(h => h.Lab)
-                .Where(x => x.HospitalId == hospital.Id)
-                .ToListAsync();
-            this.ViewBag.Hospital = hospital;
-            return this.View(items);
-        }
-
-        public async Task<IActionResult> Create(Int32? hospitalId)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
-
-            var hospital = await this.context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
-
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
-
-            this.ViewBag.Hospital = hospital;
-            this.ViewData["LabId"] = new SelectList(this.context.Labs, "Id", "Name");
-            return this.View(new HospitalLabCreateForm());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Int32? hospitalId, HospitalLabCreateForm model)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
-
-            var hospital = await this.context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
-
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
-
-            if (this.ModelState.IsValid)
-            {
-                var hospitalLab = new HospitalLab
-                {
-                    HospitalId = hospital.Id,
-                    LabId = model.LabId
-                };
-
-                this.context.Add(hospitalLab);
-                await this.context.SaveChangesAsync();
-                return this.RedirectToAction("Index", new { hospitalId = hospital.Id });
-            }
-
-            this.ViewBag.Hospital = hospital;
-            this.ViewData["LabId"] = new SelectList(this.context.Labs, "Id", "Name", model.LabId);
-            return this.View(model);
-        }
-
-        public async Task<IActionResult> Delete(Int32? hospitalId, Int32? labId)
-        {
-            if (hospitalId == null || labId == null)
-            {
-                return this.NotFound();
-            }
-
-            var hospitalLab = await this.context.HospitalLabs
-                .Include(h => h.Hospital)
-                .Include(h => h.Lab)
-                .SingleOrDefaultAsync(m => m.HospitalId == hospitalId && m.LabId == labId);
-            if (hospitalLab == null)
-            {
-                return this.NotFound();
-            }
-
-            return this.View(hospitalLab);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Int32 hospitalId, Int32 labId)
-        {
-            var hospitalLab = await this.context.HospitalLabs.SingleOrDefaultAsync(m => m.HospitalId == hospitalId && m.LabId == labId);
-            this.context.HospitalLabs.Remove(hospitalLab);
-            await this.context.SaveChangesAsync();
-            return this.RedirectToAction("Index", new { hospitalId = hospitalId });
-        }
+    private async Task<IActionResult> ShowForm(int hospitalId, HospitalLabCreateForm model)
+    {
+        ViewBag.Hospital = await hospitals.GetAsync(hospitalId);
+        ViewBag.LabId = new SelectList(await labs.ListAsync(), "Id", "Name", model.LabId);
+        return View(nameof(Create), model);
     }
 }
