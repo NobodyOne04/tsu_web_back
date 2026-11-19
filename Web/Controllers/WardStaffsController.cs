@@ -1,202 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Backend5.Application.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Web.Data;
-using Web.Models;
 using Web.Forms;
 
-namespace Web.Controllers
+namespace Web.Controllers;
+
+/// <summary>Staff of a ward.</summary>
+public class WardStaffsController(WardService wards) : FormController
 {
-    public class WardStaffsController : Controller
+    public async Task<IActionResult> Index(int wardId)
     {
-        private readonly ApplicationDbContext _context;
-
-        public WardStaffsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<IActionResult> Index(Int32? WardId)
-        {
-            if (WardId == null)
-            {
-                return this.NotFound();
-            }
-
-            var ward = await this._context.Wards
-                .SingleOrDefaultAsync(x => x.Id == WardId);
-
-            if (ward == null)
-            {
-                return this.NotFound();
-            }
-
-            ViewBag.Ward = ward;
-
-            var wardstaff = await this._context.WardStaff
-                .Where(x => x.WardId == WardId)
-                .ToListAsync();
-
-            return View(wardstaff);
-        }
-
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var wardStaff = await _context.WardStaff
-                .Include(w => w.Ward)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (wardStaff == null)
-            {
-                return NotFound();
-            }
-
-            return View(wardStaff);
-        }
-
-        public async Task<IActionResult> Create(Int32? WardId)
-        {
-            if (WardId == null)
-            {
-                return this.NotFound();
-            }
-
-            var ward = await this._context.Wards
-                .SingleOrDefaultAsync(x => x.Id == WardId);
-
-            if (ward == null)
-            {
-                return this.NotFound();
-            }
-
-            ViewBag.Ward = ward;
-            return View(new WardStaffForm());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Int32? WardId, WardStaffForm model)
-        {
-            if (WardId == null)
-            {
-                return this.NotFound();
-            }
-
-            var ward = await this._context.Wards
-                .SingleOrDefaultAsync(x => x.Id == WardId);
-
-            if (ward == null)
-            {
-                return this.NotFound();
-            }
-
-
-            if (ModelState.IsValid)
-            {
-                var WS = new WardStaff
-                {
-                    Name = model.Name,
-                    Position = model.Position,
-                    WardId = ward.Id
-                };
-
-                _context.Add(WS);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { wardId = ward.Id });
-            }
-            this.ViewBag.Ward = ward;
-            return this.View(model);
-
-        }
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var wardStaff = await _context.WardStaff.SingleOrDefaultAsync(m => m.Id == id);
-            if (wardStaff == null)
-            {
-                return NotFound();
-            }
-            ViewData["WardId"] = new SelectList(_context.Wards, "Id", "Name", wardStaff.WardId);
-            return View(wardStaff);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Position,WardId")] WardStaff wardStaff)
-        {
-            if (id != wardStaff.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(wardStaff);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!WardStaffExists(wardStaff.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["WardId"] = new SelectList(_context.Wards, "Id", "Name", wardStaff.WardId);
-            return View(wardStaff);
-        }
-
-        public async Task<IActionResult> Delete(Int32? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var wardStaff = await _context.WardStaff
-                .Include(w => w.Ward)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (wardStaff == null)
-            {
-                return NotFound();
-            }
-
-            return View(wardStaff);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Int32 id)
-        {
-            var wardStaff = await _context.WardStaff.SingleOrDefaultAsync(m => m.Id == id);
-            _context.WardStaff.Remove(wardStaff);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", new { wardId = wardStaff.WardId });
-        }
-
-        private bool WardStaffExists(Int32 id)
-        {
-            return _context.WardStaff.Any(e => e.Id == id);
-        }
+        var ward = await wards.GetAsync(wardId);
+        ViewBag.Ward = ward;
+        return View(ward.WardStaffs.OrderBy(s => s.Name));
     }
+
+    public async Task<IActionResult> Details(int id) => View(await wards.GetStaffAsync(id));
+
+    public async Task<IActionResult> Create(int wardId)
+    {
+        ViewBag.Ward = await wards.GetAsync(wardId);
+        return View(new WardStaffForm());
+    }
+
+    [HttpPost, ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(int wardId, WardStaffForm model)
+    {
+        ViewBag.Ward = await wards.GetAsync(wardId);
+        return await SubmitAsync(
+            () => wards.AddStaffAsync(wardId, model.Name, model.Position),
+            () => RedirectToAction(nameof(Index), new { wardId }),
+            () => View(model));
+    }
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        var staff = await wards.GetStaffAsync(id);
+        return View(new WardStaffForm { Name = staff.Name, Position = staff.Position });
+    }
+
+    [HttpPost, ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, WardStaffForm model)
+    {
+        var wardId = (await wards.GetStaffAsync(id)).WardId;
+        return await SubmitAsync(
+            () => wards.UpdateStaffAsync(id, model.Name, model.Position),
+            () => RedirectToAction(nameof(Index), new { wardId }),
+            () => View(model));
+    }
+
+    public async Task<IActionResult> Delete(int id) => View(await wards.GetStaffAsync(id));
+
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id) =>
+        RedirectToAction(nameof(Index), new { wardId = await wards.RemoveStaffAsync(id) });
 }

@@ -1,155 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Backend5.Application.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Web.Data;
-using Web.Models;
 using Web.Forms;
 
-namespace Backend5.Controllers
+namespace Web.Controllers;
+
+public class DoctorsController(DoctorService doctors) : FormController
 {
-    public class DoctorsController : Controller
+    public async Task<IActionResult> Index() => View(await doctors.ListAsync());
+
+    public async Task<IActionResult> Details(int id) => View(await doctors.GetAsync(id));
+
+    public IActionResult Create() => View(new DoctorForm());
+
+    [HttpPost, ValidateAntiForgeryToken]
+    public Task<IActionResult> Create(DoctorForm model) => SubmitAsync(
+        () => doctors.CreateAsync(model.Name, model.Speciality),
+        () => RedirectToAction(nameof(Index)),
+        () => View(model));
+
+    public async Task<IActionResult> Edit(int id)
     {
-        private readonly ApplicationDbContext _context;
+        var doctor = await doctors.GetAsync(id);
+        return View(new DoctorForm { Name = doctor.Name, Speciality = doctor.Speciality });
+    }
 
-        public DoctorsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+    [HttpPost, ValidateAntiForgeryToken]
+    public Task<IActionResult> Edit(int id, DoctorForm model) => SubmitAsync(
+        () => doctors.UpdateAsync(id, model.Name, model.Speciality),
+        () => RedirectToAction(nameof(Index)),
+        () => View(model));
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Doctors.ToListAsync());
-        }
+    public async Task<IActionResult> Delete(int id) => View(await doctors.GetAsync(id));
 
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var doctor = await _context.Doctors
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (doctor == null)
-            {
-                return NotFound();
-            }
-
-            return View(doctor);
-        }
-
-        public IActionResult Create()
-        { 
-            return View(new DoctorForm());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(DoctorForm model)
-        {
-            if (this.ModelState.IsValid)
-            {
-                var doctor = new Doctor
-                {
-                    Name = model.Name,
-                    Speciality = model.Speciality
-                };
-                
-                this._context.Doctors.Add(doctor);
-                await this._context.SaveChangesAsync();
-                return this.RedirectToAction("Index");
-            }
-
-            return this.View(model);
-
-        }
-
-        public async Task<IActionResult> Edit(Int32? id)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var doctor = await this._context.Doctors
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (doctor == null)
-            {
-                return this.NotFound();
-            }
-
-            var model = new DoctorForm
-            {
-                Name = doctor.Name,
-                Speciality = doctor.Speciality
-            };
-
-            return this.View(model);
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Int32? id, DoctorForm model)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var doctor = await this._context.Doctors
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (doctor == null)
-            {
-                return this.NotFound();
-            }
-
-            if (this.ModelState.IsValid)
-            {
-                doctor.Name = model.Name;
-                doctor.Speciality = model.Speciality;
-
-                await this._context.SaveChangesAsync();
-                return this.RedirectToAction("Index");
-            }
-
-            return this.View(model);
-        }
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var doctor = await _context.Doctors
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (doctor == null)
-            {
-                return NotFound();
-            }
-
-            return View(doctor);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var doctor = await _context.Doctors.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Doctors.Remove(doctor);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool DoctorExists(int id)
-        {
-            return _context.Doctors.Any(e => e.Id == id);
-        }
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        await doctors.DeleteAsync(id);
+        return RedirectToAction(nameof(Index));
     }
 }

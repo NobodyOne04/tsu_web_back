@@ -1,26 +1,31 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Backend5.Infrastructure;
+using Backend5.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Web;
 
-namespace Web
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddBackend5(builder.Configuration.GetConnectionString("Default")
+    ?? throw new InvalidOperationException("ConnectionStrings:Default is missing"));
+builder.Services.AddControllersWithViews(o => o.Filters.Add<NotFoundFilter>());
+
+var app = builder.Build();
+
+// bring the database schema up to date (SQLite file by default)
+using (var scope = app.Services.CreateScope())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+    await scope.ServiceProvider.GetRequiredService<Backend5DbContext>().Database.MigrateAsync();
 }
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
+
+app.UseStaticFiles();
+app.UseRouting();
+app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
+await app.RunAsync();
+
+public partial class Program;  // visible to WebApplicationFactory in the tests

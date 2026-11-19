@@ -1,181 +1,41 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+using Backend5.Application.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Web.Data;
-using Web.Models;
 using Web.Forms;
 
-namespace Web.Controllers
+namespace Web.Controllers;
+
+public class LabsController(LabService labs) : FormController
 {
-    public class LabsController : Controller
+    public async Task<IActionResult> Index() => View(await labs.ListAsync());
+
+    public async Task<IActionResult> Details(int id) => View(await labs.GetAsync(id));
+
+    public IActionResult Create() => View(new LabCreateForm());
+
+    [HttpPost, ValidateAntiForgeryToken]
+    public Task<IActionResult> Create(LabCreateForm model) => SubmitAsync(
+        () => labs.CreateAsync(model.Name, model.Address, model.Phones),
+        () => RedirectToAction(nameof(Index)),
+        () => View(model));
+
+    public async Task<IActionResult> Edit(int id)
     {
-        private readonly ApplicationDbContext context;
+        var lab = await labs.GetAsync(id);
+        return View(new LabEditForm { Name = lab.Name, Address = lab.Address, Phones = lab.PhonesText });
+    }
 
-        public LabsController(ApplicationDbContext context)
-        {
-            this.context = context;
-        }
+    [HttpPost, ValidateAntiForgeryToken]
+    public Task<IActionResult> Edit(int id, LabEditForm model) => SubmitAsync(
+        () => labs.UpdateAsync(id, model.Name, model.Address, model.Phones),
+        () => RedirectToAction(nameof(Index)),
+        () => View(model));
 
-        public async Task<IActionResult> Index()
-        {
-            return this.View(await this.context.Labs.ToListAsync());
-        }
+    public async Task<IActionResult> Delete(int id) => View(await labs.GetAsync(id));
 
-        public async Task<IActionResult> Details(Int32? id)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var lab = await this.context.Labs
-                .Include(x => x.Phones)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (lab == null)
-            {
-                return this.NotFound();
-            }
-
-            return this.View(lab);
-        }
-
-        public IActionResult Create()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LabCreateForm model)
-        {
-            if (this.ModelState.IsValid)
-            {
-                var lab = new Lab
-                {
-                    Name = model.Name,
-                    Address = model.Address,
-                    Phones = new Collection<LabPhone>()
-                };
-                if (model.Phones != null)
-                {
-                    var phoneId = 1;
-                    foreach (var phone in model.Phones.Split(',').Select(x => x.Trim()).Where(x => !String.IsNullOrEmpty(x)))
-                    {
-                        lab.Phones.Add(new LabPhone
-                        {
-                            PhoneId = phoneId++,
-                            Number = phone
-                        });
-                    }
-                }
-
-                this.context.Add(lab);
-                await this.context.SaveChangesAsync();
-                return this.RedirectToAction("Index");
-            }
-
-            return this.View(model);
-        }
-
-        public async Task<IActionResult> Edit(Int32? id)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var lab = await this.context.Labs
-                .Include(x => x.Phones)
-                .SingleOrDefaultAsync(m => m.Id == id);
-
-            if (lab == null)
-            {
-                return this.NotFound();
-            }
-
-            var model = new LabEditForm
-            {
-                Name = lab.Name,
-                Address = lab.Address,
-                Phones = String.Join(", ", lab.Phones.OrderBy(x => x.PhoneId).Select(x => x.Number))
-            };
-
-            return this.View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Int32? id, LabEditForm model)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var lab = await this.context.Labs
-                .Include(x => x.Phones)
-                .SingleOrDefaultAsync(m => m.Id == id);
-
-            if (lab == null)
-            {
-                return this.NotFound();
-            }
-
-            if (this.ModelState.IsValid)
-            {
-                lab.Name = model.Name;
-                lab.Address = model.Address;
-                var phoneId = lab.Phones.Any() ? lab.Phones.Max(x => x.PhoneId) + 1 : 1;
-                lab.Phones.Clear();
-                if (model.Phones != null)
-                {
-                    foreach (var phone in model.Phones.Split(',').Select(x => x.Trim()).Where(x => !String.IsNullOrEmpty(x)))
-                    {
-                        lab.Phones.Add(new LabPhone
-                        {
-                            PhoneId = phoneId++,
-                            Number = phone
-                        });
-                    }
-                }
-
-                await this.context.SaveChangesAsync();
-                return this.RedirectToAction("Index");
-            }
-
-            return this.View(model);
-        }
-
-        public async Task<IActionResult> Delete(Int32? id)
-        {
-            if (id == null)
-            {
-                return this.NotFound();
-            }
-
-            var lab = await this.context.Labs
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (lab == null)
-            {
-                return this.NotFound();
-            }
-
-            return this.View(lab);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Int32 id)
-        {
-            var lab = await this.context.Labs.SingleOrDefaultAsync(m => m.Id == id);
-            this.context.Labs.Remove(lab);
-            await this.context.SaveChangesAsync();
-            return this.RedirectToAction("Index");
-        }
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        await labs.DeleteAsync(id);
+        return RedirectToAction(nameof(Index));
     }
 }

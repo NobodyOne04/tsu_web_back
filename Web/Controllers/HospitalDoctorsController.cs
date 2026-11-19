@@ -1,139 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Backend5.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Web.Data;
-using Web.Models;
 using Web.Forms;
 
-namespace Web.Controllers
+namespace Web.Controllers;
+
+/// <summary>The doctors working at a hospital.</summary>
+public class HospitalDoctorsController(HospitalService hospitals, DoctorService doctors) : FormController
 {
-    public class HospitalDoctorsController : Controller
+    public async Task<IActionResult> Index(int hospitalId)
     {
-        private readonly ApplicationDbContext _context;
+        var hospital = await hospitals.GetAsync(hospitalId);
+        ViewBag.Hospital = hospital;
+        return View(hospital.Doctors.OrderBy(d => d.Doctor.Name));
+    }
 
-        public HospitalDoctorsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+    public async Task<IActionResult> Create(int hospitalId) => await ShowForm(hospitalId, new HospitalDoctorForm());
 
-        public async Task<IActionResult> Index(Int32? hospitalId)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
+    [HttpPost, ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(int hospitalId, HospitalDoctorForm model)
+    {
+        IActionResult showForm = await ShowForm(hospitalId, model);
+        return await SubmitAsync(
+            () => hospitals.AssignDoctorAsync(hospitalId, model.DoctorId),
+            () => RedirectToAction(nameof(Index), new { hospitalId }),
+            () => showForm);
+    }
 
-            var hospital = await this._context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
+    public async Task<IActionResult> Delete(int hospitalId, int doctorId)
+    {
+        var hospital = await hospitals.GetAsync(hospitalId);
+        var link = hospital.Doctors.SingleOrDefault(d => d.DoctorId == doctorId);
+        return link is null ? NotFound() : View(link);
+    }
 
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int hospitalId, int doctorId)
+    {
+        await hospitals.UnassignDoctorAsync(hospitalId, doctorId);
+        return RedirectToAction(nameof(Index), new { hospitalId });
+    }
 
-            var items = await this._context.HospitalDoctors
-                .Include(h => h.Hospital)
-                .Include(h => h.Doctor)
-                .Where(x => x.HospitalId == hospital.Id)
-                .ToListAsync();
-            this.ViewBag.Hospital = hospital;
-            return this.View(items);
-        }
-
-
-        public async Task<IActionResult> Create(Int32? hospitalId)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
-
-            var hospital = await this._context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
-
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
-
-            this.ViewBag.Hospital = hospital;
-            this.ViewData["DoctorId"] = new SelectList(this._context.Doctors, "Id", "Name");
-            return this.View(new HospitalDoctorForm());
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Int32? hospitalId, HospitalDoctorForm model)
-        {
-            if (hospitalId == null)
-            {
-                return this.NotFound();
-            }
-
-            var hospital = await this._context.Hospitals
-                .SingleOrDefaultAsync(x => x.Id == hospitalId);
-
-            if (hospital == null)
-            {
-                return this.NotFound();
-            }
-
-            if (this.ModelState.IsValid)
-            {
-                var hospitalDoctor = new HospitalDoctor
-                {
-                    HospitalId = hospital.Id,
-                    DoctorId = model.DoctorId
-                };
-
-                this._context.Add(hospitalDoctor);
-                await this._context.SaveChangesAsync();
-                return this.RedirectToAction("Index", new { hospitalId = hospital.Id });
-            }
-
-            this.ViewBag.Hospital = hospital;
-            this.ViewData["LabId"] = new SelectList(this._context.Labs, "Id", "Name", model.DoctorId);
-            return this.View(model);
-        }
-
-       
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var hospitalDoctor = await _context.HospitalDoctors
-                .Include(h => h.Doctor)
-                .Include(h => h.Hospital)
-                .SingleOrDefaultAsync(m => m.HospitalId == id);
-            if (hospitalDoctor == null)
-            {
-                return NotFound();
-            }
-
-            return View(hospitalDoctor);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var hospitalDoctor = await _context.HospitalDoctors.SingleOrDefaultAsync(m => m.HospitalId == id);
-            _context.HospitalDoctors.Remove(hospitalDoctor);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool HospitalDoctorExists(int id)
-        {
-            return _context.HospitalDoctors.Any(e => e.HospitalId == id);
-        }
+    private async Task<IActionResult> ShowForm(int hospitalId, HospitalDoctorForm model)
+    {
+        ViewBag.Hospital = await hospitals.GetAsync(hospitalId);
+        // was ViewData["LabId"] on a failed POST, so the doctor list vanished
+        ViewBag.DoctorId = new SelectList(await doctors.ListAsync(), "Id", "Name", model.DoctorId);
+        return View(nameof(Create), model);
     }
 }
