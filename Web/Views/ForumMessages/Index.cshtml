@@ -1,46 +1,52 @@
-﻿@model IEnumerable<Web.Models.ForumMessage>
-
-<h2>First topic</h2>
-
-@if (User.Identity.IsAuthenticated)
-{
-    <p>
-        <a asp-action="Create" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Reply</a>
-        @*| <a asp-action="Edit" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Edit</a>*@
-        @*| <a asp-action="Delete" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Delete</a>*@
-        | <a asp-action="Back" asp-controller="ForumMessages" asp-route-id="@ViewBag.Topic.Id">Back to Forum 1</a>
-    </p>
+@model ForumTopic
+@{
+    ViewData["Title"] = Model.Name;
+    var actor = ActorAccessor.Current;
 }
-    @foreach (var message in Model)
+<p><a asp-controller="Forum" asp-action="Index">Forum</a> / <a asp-controller="ForumTopics" asp-action="Index" asp-route-forumId="@Model.ForumId">@Model.Forum.Name</a></p>
+<h2>@Model.Name</h2>
+<p class="text-muted">
+    Started by @Model.AuthorName &middot; @Model.Created.ToString("g")
+    @if (Model.CanEdit(actor))
     {
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div>
-                    By person in @message.Created
-                    | <a href="#">Edit</a>
-                    | <a href="#">Delete</a>
-                    | <a asp-action="Create" asp-controller="ForumMessageAttachments" asp-route-Id="@message.Id">Attach</a>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="forum-message-text">
-                    @message.Text
-                </div>
-                <div class="row">
-                        @foreach (var Item in message.ForumMessageAttachments)
-                        {
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <a href="@Item.FilePath" target="__blank">
-                                        <img src="@Item.FilePath" alt="Attachment" />
-                                    </a>
-                                </div>
-                                <div class="caption">
-                                    <p><a asp-controller="ForumAttachmentsController" asp-action="Delete" asp-route-id="Item.Id" class="btn btn-sm btn-danger">Delete</a></p>
-                                </div>
-                            </div>
-                        }
-                </div>
-            </div>
-        </div>
+        <text>&middot;</text> <a asp-controller="ForumTopics" asp-action="Edit" asp-route-id="@Model.Id">Rename</a>
+        <text>&middot;</text> <a asp-controller="ForumTopics" asp-action="Delete" asp-route-id="@Model.Id">Delete topic</a>
     }
+</p>
+@foreach (var m in Model.Messages.OrderBy(x => x.Created))
+{
+    var mine = m.CanEdit(actor);
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @m.AuthorName &middot; @m.Created.ToString("g")@(m.Modified > m.Created ? " (edited)" : "")
+            @if (mine)
+            {
+                <span class="pull-right">
+                    <a asp-action="Edit" asp-route-id="@m.Id">Edit</a> &middot;
+                    <a asp-action="Attach" asp-route-id="@m.Id">Attach</a> &middot;
+                    <a asp-action="Delete" asp-route-id="@m.Id">Delete</a>
+                </span>
+            }
+        </div>
+        <div class="panel-body">
+            <div style="white-space: pre-wrap">@m.Text</div>
+            @if (m.Attachments.Count > 0)
+            {
+                <div class="row" style="margin-top: 10px">
+                    @foreach (var a in m.Attachments.OrderBy(x => x.Created))
+                    {
+                        <div class="col-sm-6 col-md-4"><div class="thumbnail">
+                            @if (a.IsImage) { <img src="@Url.Action("Attachment", new { id = a.Id })" alt="@a.FileName" /> }
+                            <div class="caption">
+                                <a asp-action="Attachment" asp-route-id="@a.Id">@a.FileName</a>
+                                @if (mine) { <text>&middot;</text> <a asp-action="DeleteAttachment" asp-route-id="@a.Id" class="text-danger">Delete</a> }
+                            </div>
+                        </div></div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+@if (actor is not null) { <a asp-action="Create" asp-route-topicId="@Model.Id" class="btn btn-default">Reply</a> }
+else { <p><a asp-controller="Account" asp-action="Login">Log in</a> to reply.</p> }

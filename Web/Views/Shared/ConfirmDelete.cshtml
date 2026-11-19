@@ -1,0 +1,9 @@
+@model ConfirmDeleteModel
+@{ ViewData["Title"] = "Delete"; }
+<h2>Delete</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
+<p>Delete @Model.What? This can't be undone.</p>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Model.Back" class="btn btn-link">Cancel</a>
+</form>

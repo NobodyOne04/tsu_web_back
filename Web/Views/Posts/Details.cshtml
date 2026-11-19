@@ -1,76 +1,48 @@
-@using Web.Services
 @model Post
-@inject IUserPermissionsService UserPermissions
 @{
-    ViewData["Title"] = "Details";
-    var canEditPost = UserPermissions.CanEditPost(this.Model);
+    ViewData["Title"] = Model.Title;
+    var actor = ActorAccessor.Current;
+    var canEdit = Model.CanEdit(actor);
 }
-
-
-<div class="blog-post-details">
-    <h1>@Model.Title</h1>
-    <div class="blog-post-info">
-        @Model.Creator.UserName | @Model.Category.Name | @Model.Created
-        @if (canEditPost)
-        {
-            <text>|</text> <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-            <text>|</text> <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-        }
-    </div>
-
-    <div class="blog-post-text">@Model.Text</div>
-</div>
+<h1>@Model.Title</h1>
+<p class="text-muted">
+    @Model.AuthorName &middot; @Model.Category.Name &middot; @Model.Created.ToString("g")
+    @if (canEdit)
+    {
+        <text>&middot;</text> <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <text>&middot;</text> <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+    }
+</p>
+<div style="white-space: pre-wrap">@Model.Text</div>
 
 <h3>Attachments</h3>
-
-@if (canEditPost)
-{
-    <p>
-        <a asp-action="Create" asp-controller="PostAttachments" asp-route-postId="@Model.Id" class="btn btn-default">Create New</a>
-    </p>
-}
-
+@if (canEdit) { <p><a asp-controller="PostAttachments" asp-action="Create" asp-route-postId="@Model.Id" class="btn btn-default btn-sm">Attach a file</a></p> }
 <div class="row">
-    @foreach (var item in Model.Attachments.OrderByDescending(x => x.Created))
+    @foreach (var a in Model.Attachments.OrderByDescending(x => x.Created))
     {
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img src="@item.Path" alt="Image" />
-                @if (canEditPost)
-                {
-                    <div class="caption">
-                        <p><a asp-action="Delete" asp-controller="PostAttachments" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></p>
-                    </div>
-                }
+        <div class="col-sm-6 col-md-4"><div class="thumbnail">
+            @if (a.IsImage) { <img src="@Url.Action("Show", "PostAttachments", new { id = a.Id })" alt="@a.FileName" /> }
+            <div class="caption">
+                <a asp-controller="PostAttachments" asp-action="Show" asp-route-id="@a.Id">@a.FileName</a>
+                @if (canEdit) { <text>&middot;</text> <a asp-controller="PostAttachments" asp-action="Delete" asp-route-id="@a.Id" class="text-danger">Delete</a> }
             </div>
-        </div>
+        </div></div>
     }
 </div>
 
 <h3>Comments</h3>
-
-<p>
-    <a asp-action="Create" asp-controller="PostComments" asp-route-postId="@Model.Id" class="btn btn-default">Create New</a>
-</p>
-
-<div class="blog-posts">
-    <div class="blog-posts-items">
-        @foreach (var item in Model.Comments.OrderByDescending(x => x.Created))
-        {
-            <div class="blog-post panel panel-default">
-                <div class="panel-heading">
-                    <div>@item.Creator.UserName | @item.Created
-                        @if (UserPermissions.CanEditPostComment(item))
-                        {
-                            <text>| <a asp-action="Edit" asp-controller="PostComments" asp-route-id="@item.Id">Edit</a></text>
-                            <text>| <a asp-action="Delete" asp-controller="PostComments" asp-route-id="@item.Id">Delete</a></text>
-                        }
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="blog-post-text">@item.Text</div>
-                </div>
-            </div>
-        }
+@if (actor is not null) { <p><a asp-controller="PostComments" asp-action="Create" asp-route-postId="@Model.Id" class="btn btn-default btn-sm">Comment</a></p> }
+@foreach (var c in Model.Comments.OrderBy(x => x.Created))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @c.AuthorName &middot; @c.Created.ToString("g")
+            @if (c.CanEdit(actor))
+            {
+                <text>&middot;</text> <a asp-controller="PostComments" asp-action="Edit" asp-route-id="@c.Id">Edit</a>
+                <text>&middot;</text> <a asp-controller="PostComments" asp-action="Delete" asp-route-id="@c.Id">Delete</a>
+            }
+        </div>
+        <div class="panel-body" style="white-space: pre-wrap">@c.Text</div>
     </div>
-</div>
+}
