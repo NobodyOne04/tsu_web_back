@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="src/Backend5.Application/Backend5.Application.csproj" />
+  <Project Path="src/Backend5.Core/Backend5.Core.csproj" />
+  <Project Path="src/Backend5.Infrastructure/Backend5.Infrastructure.csproj" />
+  <Project Path="tests/Backend5.Tests/Backend5.Tests.csproj" />
+  <Project Path="Web/Web.csproj" />
+</Solution>
