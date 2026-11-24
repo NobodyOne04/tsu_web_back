@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- use cases over the domain; storage and files only through Ports.cs -->
+  <ItemGroup>
+    <ProjectReference Include="..\Backend6.Core\Backend6.Core.csproj" />
+  </ItemGroup>
+</Project>
