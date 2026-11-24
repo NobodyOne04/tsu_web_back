@@ -8,9 +8,9 @@
 
 <form asp-antiforgery="true" asp-action="Auth" asp-controller="Auth">
     <div style="display:@ViewBag.visibleuser">
-        @Html.Partial("_UserForm")
+        <partial name="_UserForm" />
     </div>
     <div style="display:@ViewBag.visibleprivate">
-        @Html.Partial("_PrivateUserForm")
+        <partial name="_PrivateUserForm" />
     </div>
 </form>
